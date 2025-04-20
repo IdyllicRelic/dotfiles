@@ -1,0 +1,24 @@
+[general]
+import = ["~/.config/alacritty/rose-pine.toml"]
+
+[window]
+dimensions = { columns = 134, lines = 36}
+opacity = 0.8
+blur = true
+
+[font]
+normal = {family = "Cascadia Code", style = "Regular"}
+bold = {family = "Cascadia Code", style = "Bold"}
+italic = {family = "Cascadia Code", style = "Italic"}
+
+[cursor]
+style = {shape = "Beam", blinking = "On"}
+
+[keyboard]
+bindings = [
+{key = "C", mods = "Control", action = "Copy"},
+{key = "V", mods = "Control", action = "Paste"},
+{key = "Q", mods = "Control", action = "SpawnNewInstance"},
+{key = "L", mods = "Control", action = "ClearHistory"},
+{key = "C", mods = "Control", chars = "\u0003"},
+]

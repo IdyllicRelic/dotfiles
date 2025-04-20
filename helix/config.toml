@@ -1,0 +1,28 @@
+theme = "rose_pine"
+
+[editor]
+# Show currently open buffers, only when more than one exists.
+bufferline = "multiple"
+# Highlight all lines with a cursor
+cursorline = true
+# Force the theme to show colors
+true-color = true
+
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+character = "╎"
+render = true
+
+[editor.lsp]
+# Disable automatically popups of signature parameter help
+auto-signature-help = false
+# Show LSP messages in the status line
+display-messages = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
