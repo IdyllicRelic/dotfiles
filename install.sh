@@ -1,18 +1,21 @@
 #!/bin/bash
 
-cp .zshrc /home/$USER
+logfile=./logs/$(date "+%Y%m%d_%H%M%S").log
+
+mkdir ./logs
+cp .zshrc /home/$USER &>> $logfile
 echo "Installed ZSH config."
-cp -r ./helix /home/$USER/.config
+cp -r ./helix /home/$USER/.config &>> $logfile
 echo "Installed helix config"
 
-git clone https://github.com/rose-pine/starship.git
-cp ./starship/rose-pine.toml /home/$USER/.config/starship.toml
+git clone https://github.com/rose-pine/starship.git &>> $logfile
+cp ./starship/rose-pine.toml /home/$USER/.config/starship.toml &>> $logfile
 echo "Installed starship config"
 
 echo "Do you want to install alacritty config?"
-read if-alacritty
-if [ $if-alacritty = 'yes']; then
-  cp ./alacritty /home/$USER/.config
+read ifAlacritty
+if [ $ifAlacritty = 'yes']; then
+  cp ./alacritty /home/$USER/.config &>> $logfile
 fi
 
 echo "Finished installing config files"

@@ -51,7 +51,7 @@ alias aria='aria2c'
 alias ls='ls --color'
 alias c='clear'
 alias fastfetch='fastfetch --config examples/10.jsonc'
-alias compile='g++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23 '
+alias compile='g++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23'
 alias cd='z'
 
 # Keybindings
