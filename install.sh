@@ -1,8 +1,19 @@
 #!/bin/bash
 
-logfile=./logs/$(date "+%Y%m%d_%H%M%S").log
-
 mkdir ./logs
+logfile=$(touch ./logs/$(date "+%Y%m%d_%H%M%S").log)
+
+echo "Configuring git..."
+if command -v git; then
+  git config --global user.name "Seyrn"
+  git config --global user.email 147831357+IdyllicRelic@users.noreply.github.com
+  git config --global init.defaultBranch main
+  git config --global pull.rebase false
+else
+  echo "Please install git and try again"
+  exit 1
+fi
+
 cp .zshrc /home/$USER &>> $logfile
 echo "Installed ZSH config."
 cp -r ./helix /home/$USER/.config &>> $logfile
@@ -25,7 +36,7 @@ fi
 braveflags="--ignore-gpu-blocklist
 --enable-zero-copy
 --enable-features=AcceleratedVideoDecodeLinuxGL"
-bravefdir="~/.var/app/com.brave.Browser"
+bravefdir="~/.var/app/com.brave.Browser/config"
 
 echo "Do you want to setup hardware acceleration for Brave browser?(yes/no)"
 read ifHW
