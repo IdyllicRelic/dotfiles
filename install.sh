@@ -1,8 +1,5 @@
 #!/bin/bash
 
-mkdir ./logs
-logfile=$(touch ./logs/$(date "+%Y%m%d_%H%M%S").log)
-
 echo "Configuring git..."
 if command -v git; then
   git config --global user.name "Seyrn"
@@ -14,23 +11,29 @@ else
   exit 1
 fi
 
-cp .zshrc /home/$USER &>> $logfile
+cp .zshrc /home/$USER 
 echo "Installed ZSH config."
-cp -r ./helix /home/$USER/.config &>> $logfile
-echo "Installed helix config"
+
+if [ -d /home/$USER/.config/helix ]; then
+  cp -r ./helix/config.toml /home/$USER/.config/helix/config.toml
+  echo "Installed helix config"
+else
+  mkdir /home/$USER/.config/helix
+  cp ./helix/config.toml /home/$USER/.config/helix/config.toml
+fi
 
 echo "Do you want to install Rose-Pine starship config?(yes/no)"
 read ifRosepine
 if [ $ifRosepine = 'yes' ]; then
-  git clone https://github.com/rose-pine/starship.git &>> $logfile
-  cp ./starship/rose-pine.toml /home/$USER/.config/starship.toml &>> $logfile
+  git clone https://github.com/rose-pine/starship.git 
+  cp ./starship/rose-pine.toml /home/$USER/.config/starship.toml 
   echo "Installed starship config"
 fi
 
 echo "Do you want to install alacritty config?(yes/no)"
 read ifAlacritty
 if [ $ifAlacritty = 'yes' ]; then
-  cp ./alacritty /home/$USER/.config &>> $logfile
+  cp -r ./alacritty /home/$USER/.config/ 
 fi
 
 braveflags="--ignore-gpu-blocklist
