@@ -22,6 +22,9 @@ else
   cp ./helix/config.toml /home/$USER/.config/helix/config.toml
 fi
 
+cp -r ./zellij /home/$USER/.config/
+echo "Installed Zellij config"
+
 echo "Do you want to install Rose-Pine starship config?(yes/no)"
 read ifRosepine
 if [ $ifRosepine = 'yes' ]; then
