@@ -13,6 +13,7 @@ italic = {family = "CaskaydiaCove Nerd Font", style = "Italic"}
 
 [cursor]
 style = {shape = "Beam", blinking = "On"}
+thickness = 0.10
 
 [keyboard]
 bindings = [
@@ -22,3 +23,6 @@ bindings = [
 {key = "L", mods = "Control", action = "ClearHistory"},
 {key = "C", mods = "Control", chars = "\u0003"},
 ]
+
+[terminal]
+shell = "/usr/bin/zsh"
