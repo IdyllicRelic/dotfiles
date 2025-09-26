@@ -64,6 +64,8 @@ bindkey '^H' backward-kill-word
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
+eval "$(zellij setup --generate-auto-start zsh)"
 
 # Pywal Support
 # Import colorscheme from 'wal' asynchronously
