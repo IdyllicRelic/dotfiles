@@ -25,4 +25,4 @@ bindings = [
 ]
 
 [terminal]
-shell = "/usr/bin/zsh"
+shell = {program = "/usr/bin/zsh", args = ['-l', '-c', 'zellij']}
