@@ -26,3 +26,11 @@ display-messages = true
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name"]
+
+[keys.normal]
+A-x = "extend_to_line_bounds"
+X = "select_line_above"
+
+[keys.select]
+A-x = "extend_to_line_bounds"
+X = "select_line_above"
