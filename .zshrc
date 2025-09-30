@@ -26,6 +26,10 @@ zinit wait lucid for \
 	OMZ::plugins/git/git.plugin.zsh \
 	MichaelAquilina/zsh-you-should-use
 
+zinit as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
+	atpull'%atclone' pick"direnv" src"zhook.zsh" for \
+		direnv/direnv
+
 # Load Completions
 autoload -U compinit && compinit
 
@@ -68,7 +72,6 @@ bindkey '^H' backward-kill-word
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
 
 # Pywal Support
 # Import colorscheme from 'wal' asynchronously
