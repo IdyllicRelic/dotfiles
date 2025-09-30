@@ -22,6 +22,9 @@ zinit wait lucid light-mode for \
 zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
 	zsh-users/zsh-autosuggestions
 
+zinit wait lucid for \
+	OMZ::plugins/git/git.plugin.zsh
+
 # Load Completions
 autoload -U compinit && compinit
 
