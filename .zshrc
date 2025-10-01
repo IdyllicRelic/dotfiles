@@ -17,15 +17,16 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 zinit wait lucid light-mode for \
 	zsh-users/zsh-completions \
-	Aloxaf/fzf-tab
+	Aloxaf/fzf-tab \
+	MichaelAquilina/zsh-you-should-use 
 
 zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
 	zsh-users/zsh-autosuggestions
 
 zinit wait lucid for \
 	OMZ::plugins/git/git.plugin.zsh \
-	MichaelAquilina/zsh-you-should-use \
-	OMZ::plugins/eza/eza.plugin.zsh
+	OMZ::plugins/eza/eza.plugin.zsh \
+	OMZ::plugins/dirhistory/dirhistory.plugin.zsh
 
 zinit as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 	atpull'%atclone' pick"direnv" src"zhook.zsh" for \
@@ -55,9 +56,11 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+# Environment variables
+export YSU_MESSAGE_POSITION="after"
+
 # Aliases
 alias aria='aria2c'
-alias ls='ls --color'
 alias c='clear'
 alias fastfetch='fastfetch --config examples/10.jsonc'
 alias compile='g++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23'
