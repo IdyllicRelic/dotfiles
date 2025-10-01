@@ -24,7 +24,8 @@ zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
 
 zinit wait lucid for \
 	OMZ::plugins/git/git.plugin.zsh \
-	MichaelAquilina/zsh-you-should-use
+	MichaelAquilina/zsh-you-should-use \
+	OMZ::plugins/eza/eza.plugin.zsh
 
 zinit as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
 	atpull'%atclone' pick"direnv" src"zhook.zsh" for \
