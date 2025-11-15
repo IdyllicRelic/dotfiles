@@ -28,8 +28,9 @@ zinit wait lucid for \
 	OMZ::plugins/eza/eza.plugin.zsh \
 	OMZ::plugins/dirhistory/dirhistory.plugin.zsh
 
-zinit as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
-	atpull'%atclone' pick"direnv" src"zhook.zsh" for \
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+	atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+	pick"direnv" src="zhook.zsh" for \
 		direnv/direnv
 
 # Load Completions
