@@ -1,0 +1,24 @@
+[[language]]
+name = 'nix'
+formatter = { command = "nixfmt" }
+auto-format = true
+
+[[language]]
+name = "python"
+language-servers = [ "pyright", "ruff" ]
+formatter = { command = "ruff", args = [ "format", "--line-length", "88", '-' ] }
+auto-format = true
+
+[language-server.ruff]
+command = "ruff"
+args = [ "server" ]
+
+[[langauge]]
+name = 'c'
+formatter = { command = "clang-format" }
+auto-format = true
+
+[[language]]
+name = 'cpp'
+formatter = { command = "clang-format" }
+auto-format = true
