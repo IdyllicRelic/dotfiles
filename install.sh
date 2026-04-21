@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "Configuring git..."
 if command -v git; then
@@ -14,7 +14,7 @@ fi
 cp .zshrc /home/$USER 
 echo "Installed ZSH config."
 
-if [ -d /home/$USER/.config/helix ]; then
+if [[ -d /home/$USER/.config/helix ]]; then
   cp -r ./helix/config.toml /home/$USER/.config/helix/config.toml
   echo "Installed helix config"
 else
@@ -22,36 +22,25 @@ else
   cp ./helix/config.toml /home/$USER/.config/helix/config.toml
 fi
 
-cp -r ./zellij /home/$USER/.config/
-echo "Installed Zellij config"
+echo "Do you want to install zellij config?(y/n)"
+read ifZellij
+if [[ $ifZellij = 'y' ]]; then
+  cp -r ./zellij /home/$USER/.config/
+  echo "Installed Zellij config"
+fi
 
-echo "Do you want to install Rose-Pine starship config?(yes/no)"
+echo "Do you want to install Rose-Pine starship config?(y/n)"
 read ifRosepine
-if [ $ifRosepine = 'yes' ]; then
-  git clone https://github.com/rose-pine/starship.git 
-  cp ./starship/rose-pine.toml /home/$USER/.config/starship.toml 
+if [[ $ifRosepine = 'y' ]]; then
+  git clone https://github.com/rose-pine/starship.git /tmp/rosepine
+  cp /tmp/rosepine/rose-pine.toml /home/$USER/.config/starship.toml 
   echo "Installed starship config"
 fi
 
-echo "Do you want to install alacritty config?(yes/no)"
+echo "Do you want to install alacritty config?(y/n)"
 read ifAlacritty
-if [ $ifAlacritty = 'yes' ]; then
+if [[ $ifAlacritty = 'y' ]]; then
   cp -r ./alacritty /home/$USER/.config/ 
-fi
-
-braveflags="--ignore-gpu-blocklist
---enable-zero-copy
---enable-features=AcceleratedVideoDecodeLinuxGL"
-bravefdir="~/.var/app/com.brave.Browser/config"
-
-echo "Do you want to setup hardware acceleration for Brave browser?(yes/no)"
-read ifHW
-if [ $ifHW = 'yes' ]; then
-  if [ -d $bravefdir ]; then
-    echo $braveflags > $bravefdir/brave-flags.conf
-  else
-    echo $braveflags > ~/.config/brave-flags.conf
-  fi
 fi
 
 echo "Finished installing config files"

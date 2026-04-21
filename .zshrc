@@ -59,6 +59,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Environment variables
 export YSU_MESSAGE_POSITION="after"
+export EDITOR=hx
 
 # Aliases
 alias aria='aria2c'
