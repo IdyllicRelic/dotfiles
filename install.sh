@@ -11,8 +11,11 @@ else
   exit 1
 fi
 
-cp .zshrc /home/$USER 
+cp ./.zshrc /home/$USER 
 echo "Installed ZSH config."
+
+cp ./aria2 /home/$USER/.config/
+echo "Installed aria2 config."
 
 if [[ -d /home/$USER/.config/helix ]]; then
   cp -r ./helix/config.toml /home/$USER/.config/helix/config.toml
