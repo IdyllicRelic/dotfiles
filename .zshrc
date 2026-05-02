@@ -28,11 +28,6 @@ zinit wait lucid for \
 	OMZ::plugins/eza/eza.plugin.zsh \
 	OMZ::plugins/dirhistory/dirhistory.plugin.zsh
 
-zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-	atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-	pick"direnv" src="zhook.zsh" for \
-		direnv/direnv
-
 # Load Completions
 autoload -U compinit && compinit
 
@@ -78,6 +73,7 @@ bindkey '^H' backward-kill-word
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
 
 # Pywal Support
 # Import colorscheme from 'wal' asynchronously
