@@ -14,16 +14,11 @@ fi
 cp ./.zshrc /home/$USER
 echo "Installed ZSH config."
 
-cp ./aria2 /home/$USER/.config/
+cp -r ./aria2 /home/$USER/.config/
 echo "Installed aria2 config."
 
-if [[ -d /home/$USER/.config/helix ]]; then
-	cp -r ./helix/config.toml /home/$USER/.config/helix/config.toml
-	echo "Installed helix config"
-else
-	mkdir /home/$USER/.config/helix
-	cp ./helix/config.toml /home/$USER/.config/helix/config.toml
-fi
+cp -r ./helix /home/$USER/.config/
+echo "Installed helix config"
 
 echo "Install zellij config?(y/n)"
 read ifZellij
