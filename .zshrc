@@ -10,28 +10,24 @@ fi
 # Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Zsh plugins
-zinit ice wait'!' lucid nocd \
-	atload'!prompt_starship_precmd; _zsh_highlight_main__precmd_hook'
-zinit light zsh-users/zsh-syntax-highlighting
-
 zinit wait lucid light-mode for \
+	atinit'zicompinit; zicdreplay' \
+		zsh-users/zsh-syntax-highlighting \
 	zsh-users/zsh-completions \
 	Aloxaf/fzf-tab \
 	MichaelAquilina/zsh-you-should-use 
-
-zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
-	zsh-users/zsh-autosuggestions
+	atload'_zsh_autosuggest_start' \
+		zsh-users/zsh-autosuggestions
 
 zinit wait lucid for \
 	OMZ::plugins/git/git.plugin.zsh \
 	OMZ::plugins/eza/eza.plugin.zsh \
 	OMZ::plugins/dirhistory/dirhistory.plugin.zsh
 
-# Load Completions
-autoload -U compinit && compinit
-
-zinit cdreplay -q
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+	atclone'chmod +x direnv; ./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+	pick"direnv" src="zhook.zsh" for \
+		direnv/direnv
 
 # History
 HISTSIZE=5000
@@ -73,13 +69,3 @@ bindkey '^H' backward-kill-word
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
-
-# Pywal Support
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-# (cat ~/.cache/wal/sequences &)
-
-# To add support for TTYs this line can be optionally added.
-# source ~/.cache/wal/colors-tty.sh
