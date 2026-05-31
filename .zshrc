@@ -4,7 +4,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Download zinit if not there yet, and comment it out after first time use
 if [ ! -d "$ZINIT_HOME" ]; then
 	mkdir -p "$(dirname $ZINIT_HOME)"
-	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" --depth 1
 fi
 
 # Load zinit
@@ -15,7 +15,7 @@ zinit wait lucid light-mode for \
 		zsh-users/zsh-syntax-highlighting \
 	zsh-users/zsh-completions \
 	Aloxaf/fzf-tab \
-	MichaelAquilina/zsh-you-should-use 
+	MichaelAquilina/zsh-you-should-use \
 	atload'_zsh_autosuggest_start' \
 		zsh-users/zsh-autosuggestions
 
@@ -39,7 +39,6 @@ setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
-setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Completion styling
@@ -57,7 +56,6 @@ alias aria='aria2c'
 alias c='clear'
 alias fastfetch='fastfetch --config examples/10.jsonc'
 alias compile='g++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23'
-alias cd='z'
 
 # Keybindings
 bindkey -e
@@ -67,5 +65,5 @@ bindkey '^H' backward-kill-word
 
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 eval "$(starship init zsh)"
