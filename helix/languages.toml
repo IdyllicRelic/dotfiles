@@ -15,10 +15,10 @@ args = [ "server" ]
 
 [[langauge]]
 name = 'c'
-formatter = { command = "clang-format" }
+formatter = { command = "clang-format", args = [ "--style=Google" ] }
 auto-format = true
 
 [[language]]
 name = 'cpp'
-formatter = { command = "clang-format" }
+formatter = { command = "clang-format", args = [ "--style=Google" ] }
 auto-format = true
