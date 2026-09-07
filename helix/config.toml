@@ -9,7 +9,10 @@ cursorline = true
 true-color = true
 # Enable relative line numbers
 line-number = "relative"
+end-of-line-diagnostics = "hint"
 
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -17,7 +20,6 @@ normal = "block"
 select = "underline"
 
 [editor.indent-guides]
-character = "╎"
 render = true
 
 [editor.lsp]

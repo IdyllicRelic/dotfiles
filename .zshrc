@@ -56,6 +56,7 @@ alias aria='aria2c'
 alias c='clear'
 alias fastfetch='fastfetch --config examples/10.jsonc'
 alias compile='g++ -ggdb -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23'
+alias dump-clang-format='clang-format --style="{BasedOnStyle: Microsoft, PointerAlignment: Left, BreakBeforeBraces: Custom, BraceWrapping: {AfterNamespace: false}, Cpp11BracedListStyle: false, SpaceBeforeCpp11BracedList: true, AccessModifierOffset: -4}" --dump-config > .clang-format'
 
 # Keybindings
 bindkey -e

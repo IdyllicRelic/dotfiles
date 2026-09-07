@@ -20,13 +20,6 @@ echo "Installed aria2 config."
 cp -r ./helix /home/$USER/.config/
 echo "Installed helix config"
 
-echo "Install zellij config?(y/n)"
-read ifZellij
-if [[ $ifZellij = 'y' ]]; then
-	cp -r ./zellij /home/$USER/.config/
-	echo "Installed Zellij config"
-fi
-
 echo "Install Rose-Pine starship config?(y/n)"
 read ifRosepine
 if [[ $ifRosepine = 'y' ]]; then
